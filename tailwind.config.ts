@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,6 +52,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        fun: {
+          purple: "#8B5CF6",
+          pink: "#D946EF",
+          orange: "#F97316",
+          blue: "#0EA5E9",
+          yellow: "#FEF08A",
+          green: "#86EFAC",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -92,6 +99,23 @@ export default {
           "0%": { transform: "scale(1)", opacity: "1" },
           "100%": { transform: "scale(0.95)", opacity: "0" },
         },
+        "wiggle": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        "bounce-slight": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "float": {
+          "0%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(0px)" },
+        },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -102,16 +126,25 @@ export default {
         "slide-down": "slide-down 0.4s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
         "scale-out": "scale-out 0.3s ease-out",
+        "wiggle": "wiggle 1s ease-in-out infinite",
+        "bounce-slight": "bounce-slight 3s infinite",
+        "float": "float 5s ease-in-out infinite",
+        "spin-slow": "spin-slow 8s linear infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "dot-pattern": "radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0), radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0)",
+        "confetti": "url('data:image/svg+xml;utf8,<svg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" fill-rule=\"evenodd\"><g fill=\"%239C92AC\" fill-opacity=\"0.1\"><path d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/></g></g></svg>')",
+        "bubbles": "radial-gradient(#8B5CF620 1px, transparent 2px), radial-gradient(#D946EF20 1.5px, transparent 2px), radial-gradient(#F9731620 2px, transparent 3px)",
       },
       backgroundSize: {
         "dot-pattern": "20px 20px",
+        "confetti": "60px 60px",
+        "bubbles": "25px 25px, 30px 30px, 40px 40px",
       },
       backgroundPosition: {
         "dot-pattern": "0 0, 10px 10px",
+        "bubbles": "0 0, 15px 15px, 30px 30px",
       },
     },
   },

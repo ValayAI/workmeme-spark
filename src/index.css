@@ -5,35 +5,35 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 280 60% 98%;
+    --foreground: 278 73% 19%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 278 73% 19%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 278 73% 19%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 322 85% 66%;
+    --primary-foreground: 355 100% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 172 100% 45%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 322 25% 94%;
+    --muted-foreground: 322 15% 48%;
 
-    --accent: 262 83% 96%;
-    --accent-foreground: 262 83% 28%;
+    --accent: 342 96% 83%;
+    --accent-foreground: 342 90% 30%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262 83% 58%;
+    --border: 322 20% 87%;
+    --input: 322 20% 87%;
+    --ring: 322 85% 66%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
   }
 
   * {
@@ -43,11 +43,40 @@
   body {
     @apply bg-gradient-to-br from-background via-background to-accent/30 text-foreground antialiased min-h-screen;
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on, "cv03" on;
+    background-size: 100% 100%;
+    background-attachment: fixed;
   }
 
   /* For the blurred background cards */
   .glass {
     @apply bg-white/60 backdrop-blur-md border border-white/30 shadow-xl;
+  }
+  
+  .funky-border {
+    @apply relative rounded-xl before:absolute before:inset-0 before:rounded-xl before:p-[2px] before:bg-gradient-to-r before:from-fun-pink before:via-fun-purple before:to-fun-blue before:-z-10 before:animate-spin-slow;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-fun-pink via-fun-purple to-fun-blue bg-clip-text text-transparent;
+  }
+
+  .bubble-card {
+    @apply relative overflow-hidden;
+  }
+  
+  .bubble-card::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-24 bg-bubbles opacity-50;
+    animation: bubble-rise 10s linear infinite;
+  }
+  
+  @keyframes bubble-rise {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
   }
 
   .transition-all {
@@ -76,7 +105,7 @@
   
   /* Text selection */
   ::selection {
-    @apply bg-primary/20 text-primary;
+    @apply bg-fun-pink/20 text-fun-purple;
   }
 }
 
