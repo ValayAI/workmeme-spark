@@ -105,6 +105,13 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "dot-pattern": "radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0), radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0)",
+      },
+      backgroundSize: {
+        "dot-pattern": "20px 20px",
+      },
+      backgroundPosition: {
+        "dot-pattern": "0 0, 10px 10px",
       },
     },
   },

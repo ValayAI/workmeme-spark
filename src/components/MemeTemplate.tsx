@@ -2,6 +2,7 @@
 import React from 'react';
 import { MemeTemplate as MemeTemplateType } from '@/utils/memeTemplates';
 import { cn } from '@/lib/utils';
+import { Check } from 'lucide-react';
 
 interface MemeTemplateProps {
   template: MemeTemplateType;
@@ -17,22 +18,36 @@ const MemeTemplate: React.FC<MemeTemplateProps> = ({
   return (
     <div 
       className={cn(
-        "rounded-xl overflow-hidden relative cursor-pointer transition-all duration-300 group",
-        "transform hover:scale-105 hover:shadow-lg",
-        isSelected ? "ring-2 ring-primary scale-105" : "ring-0"
+        "rounded-2xl overflow-hidden relative cursor-pointer transition-all duration-300",
+        "transform hover:scale-105 hover:shadow-lg bg-card",
+        isSelected ? "ring-2 ring-primary ring-offset-2 ring-offset-background scale-105" : "ring-0"
       )}
       onClick={onClick}
     >
-      <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+      <div className="aspect-[4/3] overflow-hidden bg-secondary/30">
         <img 
           src={template.imageSrc} 
           alt={template.name}
-          className="w-full h-full object-cover transition-transform group-hover:scale-105"
+          className={cn(
+            "w-full h-full object-cover transition-transform",
+            isSelected ? "scale-100" : "group-hover:scale-105"
+          )}
           loading="lazy"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-        <div className="p-3 text-white">
+      
+      {isSelected && (
+        <div className="absolute top-2 right-2 bg-primary rounded-full p-1 shadow-lg text-white">
+          <Check className="h-3 w-3" />
+        </div>
+      )}
+      
+      <div className={cn(
+        "absolute inset-0 flex items-end justify-start",
+        "bg-gradient-to-t from-black/70 via-black/20 to-transparent",
+        "opacity-100 transition-opacity text-white"
+      )}>
+        <div className="p-3">
           <p className="font-medium text-sm">{template.name}</p>
         </div>
       </div>
