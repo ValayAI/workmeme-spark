@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { toast } from 'sonner';
+import { toast } from 'sonner'; // Fixed import from 'sonner' directly
 import { 
   Download, 
   Wand2, 
